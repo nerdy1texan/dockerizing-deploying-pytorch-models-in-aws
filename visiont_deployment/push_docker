@@ -1,0 +1,5 @@
+!aws ecr create-repository --repository-name visiont
+!$(aws ecr get-login --no-include-email --region <your-region>)
+!docker build -t visiont .
+!docker tag visiont:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/visiont:latest
+!docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/visiont:latest

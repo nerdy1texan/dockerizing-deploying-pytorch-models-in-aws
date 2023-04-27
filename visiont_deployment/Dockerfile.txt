@@ -1,0 +1,8 @@
+FROM pytorch/pytorch:latest
+
+RUN pip install torch torchvision sagemaker-inference
+
+ENV PATH="/opt/ml/code:${PATH}"
+COPY visiont.py /opt/ml/code/visiont.py
+
+ENTRYPOINT ["python", "/opt/ml/code/visiont.py"]
